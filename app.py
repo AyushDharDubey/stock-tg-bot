@@ -130,7 +130,7 @@ async def list_targets(update: Update, context: ContextTypes.DEFAULT_TYPE):
         
         message += "```"
     else:
-        message = "You have no active targets."
+        message = "You have no active targets\."
     
     await update.message.reply_text(message, parse_mode="MarkdownV2")
 
