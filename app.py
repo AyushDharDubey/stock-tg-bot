@@ -78,8 +78,6 @@ async def check_targets():
                 targets = get_active_targets(user_id)
                 for symbol, target_price in targets:
                     current_price = get_stock_price(symbol)
-                    print(current_price)
-                    await telegram_app.bot.send_message(chat_id=user_id, text=f"{symbol} is now at {current_price}")
                     if current_price >= target_price:
                         await telegram_app.bot.send_message(chat_id=user_id, text=f"Target reached! {symbol} is now at {current_price}")
                         deactivate_target(user_id, symbol)
