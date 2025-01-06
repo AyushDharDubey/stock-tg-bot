@@ -119,12 +119,12 @@ async def list_targets(update: Update, context: ContextTypes.DEFAULT_TYPE):
     targets = get_active_targets(update.message.from_user.id)
     if targets:
         message = "```\n"
-        message += "Symbol     | Target Price | Current Price\n"
-        message += "-----------|--------------|--------------\n"
+        message += "Symbol  | Target | Current\n"
+        message += "--------|--------|--------\n"
         
         for symbol, target_price in targets:
             current_price = get_stock_price(symbol)
-            message += f"{symbol.ljust(10)} | {str(target_price).ljust(12)} | {str(current_price).ljust(12)}\n"
+            message += f"{symbol.ljust(8)} | {str(target_price).ljust(8)} | {str(current_price).ljust(8)}\n"
         
         message += "```"
     else:
